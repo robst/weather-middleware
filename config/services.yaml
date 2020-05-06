@@ -25,3 +25,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\OpenWeatherMap\Client\ClientInterface:
+        class: App\OpenWeatherMap\Client\Client
+        arguments:
+            - 'base_uri': "http://api.openweathermap.org/data/2.5/"
