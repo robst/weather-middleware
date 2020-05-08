@@ -30,3 +30,9 @@ services:
         class: App\OpenWeatherMap\Client\Client
         arguments:
             - 'base_uri': "http://api.openweathermap.org/data/2.5/"
+
+    Webmozart\Json\JsonDecoder: ~
+
+    App\OpenWeatherMap\Repository\OpenWeatherMapRepository:
+        arguments:
+            $appId: '%env(OPENWEATHERMAP_API_KEY)%'
