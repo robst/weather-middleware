@@ -3,7 +3,9 @@
 namespace App\OpenWeatherMap\Repository;
 
 use App\OpenWeatherMap\Client\ClientInterface;
+use App\OpenWeatherMap\Exception\CityNotFoundException;
 use Webmozart\Json\JsonDecoder;
+use GuzzleHttp\Exception\ClientException;
 
 class OpenWeatherMapRepository
 {
@@ -32,13 +34,18 @@ class OpenWeatherMapRepository
     /**
      * @param string $city
      * @return object
-     * @throws \Webmozart\Json\ValidationFailedException
+     * @throws CityNotFoundException
      */
     public function findByCity(string $city): object
     {
         $uri = sprintf("weather?q=%s&APPID=%s&units=metric", $city, $this->appId);
-        $response = $this->client->request('GET', $uri)->getBody()->getContents();
+        try {
+            $response = $this->client->request('GET', $uri)->getBody()->getContents();
 
-        return $this->decoder->decode($response);
+            return $this->decoder->decode($response);
+        } catch(ClientException $exception)
+        {
+            throw new CityNotFoundException($exception->getMessage());
+        }
     }
 }
