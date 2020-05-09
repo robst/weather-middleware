@@ -3,8 +3,8 @@
 namespace App\OpenWeatherMap\Repository;
 
 use App\OpenWeatherMap\Client\ClientInterface;
+use App\OpenWeatherMap\Decoder\JsonDecoderInterface;
 use App\OpenWeatherMap\Exception\CityNotFoundException;
-use Webmozart\Json\JsonDecoder;
 use GuzzleHttp\Exception\ClientException;
 
 class OpenWeatherMapRepository
@@ -15,7 +15,7 @@ class OpenWeatherMapRepository
     protected $client;
 
     /**
-     * @var JsonDecoder
+     * @var JsonDecoderInterface
      */
     protected $decoder;
 
@@ -24,7 +24,7 @@ class OpenWeatherMapRepository
      */
     protected $appId;
 
-    public function __construct(ClientInterface $client, JsonDecoder $decoder, string $appId)
+    public function __construct(ClientInterface $client, JsonDecoderInterface $decoder, string $appId)
     {
         $this->client = $client;
         $this->decoder = $decoder;
