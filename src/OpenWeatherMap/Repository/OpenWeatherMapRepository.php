@@ -5,7 +5,7 @@ namespace App\OpenWeatherMap\Repository;
 use App\OpenWeatherMap\Client\ClientInterface;
 use App\OpenWeatherMap\Decoder\JsonDecoderInterface;
 use App\OpenWeatherMap\Exception\CityNotFoundException;
-use GuzzleHttp\Exception\ClientException;
+use App\OpenWeatherMap\Exception\ClientException;
 
 class OpenWeatherMapRepository
 {
@@ -40,7 +40,7 @@ class OpenWeatherMapRepository
     {
         $uri = sprintf("weather?q=%s&APPID=%s&units=metric", $city, $this->appId);
         try {
-            $response = $this->client->request('GET', $uri)->getBody()->getContents();
+            $response = $this->client->getResponseFromUri($uri);
 
             return $this->decoder->decode($response);
         } catch(ClientException $exception)
