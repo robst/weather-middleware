@@ -4,6 +4,7 @@ namespace App\Core\Service;
 
 use App\Core\Converter\TemperatureConverter;
 use App\Core\Hydrator\TemperatureHydrator;
+use App\OpenWeatherMap\Exception\CityNotFoundException;
 use App\OpenWeatherMap\Service\OpenWeatherMapService;
 
 class TemperatureService
@@ -36,6 +37,7 @@ class TemperatureService
     /**
      * @param string $city
      * @return array
+     * @throws CityNotFoundException
      */
     public function getTemperatureForCity(string $city): array
     {

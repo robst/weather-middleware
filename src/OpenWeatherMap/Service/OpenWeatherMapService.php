@@ -3,6 +3,7 @@
 namespace App\OpenWeatherMap\Service;
 
 use App\OpenWeatherMap\Entity\OpenWeatherMapData;
+use App\OpenWeatherMap\Exception\CityNotFoundException;
 use App\OpenWeatherMap\Hydrator\OpenWeatherDataHydrator;
 use App\OpenWeatherMap\Repository\OpenWeatherMapRepository;
 
@@ -24,6 +25,11 @@ class OpenWeatherMapService
         $this->repository = $openWeatherMapRepository;
     }
 
+    /**
+     * @param string $city
+     * @return OpenWeatherMapData
+     * @throws CityNotFoundException
+     */
     public function loadWeatherDataForCity(string $city): OpenWeatherMapData
     {
         $object = $this->repository->findByCity($city);
