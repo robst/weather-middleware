@@ -7,12 +7,12 @@ class Coord implements EntityInterface
     /**
      * @var float
      */
-    private $lon;
+    private float $lon;
 
     /**
      * @var float
      */
-    private $lat;
+    private float $lat;
 
     /**
      * @return float

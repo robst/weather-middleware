@@ -12,17 +12,17 @@ class OpenWeatherMapRepository
     /**
      * @var ClientInterface
      */
-    protected $client;
+    protected ClientInterface $client;
 
     /**
      * @var JsonDecoderInterface
      */
-    protected $decoder;
+    protected JsonDecoderInterface $decoder;
 
     /**
      * @var string
      */
-    protected $appId;
+    protected string $appId;
 
     public function __construct(ClientInterface $client, JsonDecoderInterface $decoder, string $appId)
     {

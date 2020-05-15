@@ -7,27 +7,27 @@ class Main implements EntityInterface
     /**
      * @var int
      */
-    protected $temp;
+    protected int $temp;
 
     /**
      * @var int
      */
-    protected $pressure;
+    protected int $pressure;
 
     /**
      * @var int
      */
-    protected $humidity;
+    protected int $humidity;
 
     /**
      * @var int
      */
-    protected $temp_min;
+    protected int $temp_min;
 
     /**
      * @var int
      */
-    protected $temp_max;
+    protected int $temp_max;
 
     /**
      * @return int

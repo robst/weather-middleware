@@ -12,12 +12,12 @@ class OpenWeatherMapService
     /**
      * @var OpenWeatherDataHydrator
      */
-    protected $hydrator;
+    protected OpenWeatherDataHydrator $hydrator;
 
     /**
      * @var OpenWeatherMapRepository
      */
-    protected $repository;
+    protected OpenWeatherMapRepository $repository;
 
     public function __construct(OpenWeatherDataHydrator $hydrator, OpenWeatherMapRepository $openWeatherMapRepository)
     {

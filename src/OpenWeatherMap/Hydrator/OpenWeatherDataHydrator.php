@@ -10,12 +10,12 @@ class OpenWeatherDataHydrator implements HydratorInterface
     /**
      * @var CoordHydrator
      */
-    protected $coordHydrator;
+    protected CoordHydrator $coordHydrator;
 
     /**
      * @var MainHydrator
      */
-    protected $mainHydrator;
+    protected MainHydrator $mainHydrator;
 
     public function __construct(CoordHydrator $coordHydrator, MainHydrator $mainHydrator)
     {

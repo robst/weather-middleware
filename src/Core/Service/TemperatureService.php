@@ -12,17 +12,17 @@ class TemperatureService
     /**
      * @var OpenWeatherMapService
      */
-    protected $openWeatherMapService;
+    protected OpenWeatherMapService $openWeatherMapService;
 
     /**
      * @var TemperatureConverter
      */
-    protected $converter;
+    protected TemperatureConverter $converter;
 
     /**
      * @var TemperatureHydrator
      */
-    protected $hydrator;
+    protected TemperatureHydrator $hydrator;
 
     public function __construct(
         OpenWeatherMapService $openWeatherMapService,

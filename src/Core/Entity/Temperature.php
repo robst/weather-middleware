@@ -7,17 +7,17 @@ class Temperature implements EntityInterface
     /**
      * @var int
      */
-    protected $currentTemperature;
+    protected int $currentTemperature;
 
     /**
      * @var int
      */
-    protected $maxTemperature;
+    protected int $maxTemperature;
 
     /**
      * @var int
      */
-    protected $minTemperature;
+    protected int $minTemperature;
 
     /**
      * @return int

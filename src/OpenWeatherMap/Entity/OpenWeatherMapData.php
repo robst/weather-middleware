@@ -7,17 +7,17 @@ class OpenWeatherMapData implements EntityInterface
     /**
      * @var Coord
      */
-    protected $coord;
+    protected Coord $coord;
 
     /**
-     * @var String
+     * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * @var Main
      */
-    protected $main;
+    protected Main $main;
 
     /**
      * @return Coord
@@ -38,18 +38,18 @@ class OpenWeatherMapData implements EntityInterface
     }
 
     /**
-     * @return String
+     * @return string
      */
-    public function getName(): String
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @param String $name
+     * @param string $name
      * @return OpenWeatherMapData
      */
-    public function setName(String $name): OpenWeatherMapData
+    public function setName(string $name): OpenWeatherMapData
     {
         $this->name = $name;
         return $this;
