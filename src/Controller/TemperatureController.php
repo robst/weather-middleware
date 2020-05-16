@@ -15,13 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class TemperatureController extends AbstractController
 {
     /**
-     * @Route("/by_city", name="temperature", methods={"POST"})
+     * @Route("/by_city", name="temperature", methods={"GET"})
      */
     public function by_city(Request $request, TemperatureService $service)
     {
         try {
 
-            return $this->json($service->getTemperatureForCity($request->request->get('city')));
+            return $this->json($service->getTemperatureForCity($request->query->get('city')));
         } catch (CityNotFoundException $e) {
 
             return $this->json(["message" => "city not found"], 404);;
